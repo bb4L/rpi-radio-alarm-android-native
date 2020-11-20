@@ -18,7 +18,7 @@
         tools:layout="@layout/fragment_radio" />
     <fragment
         android:id="@+id/navigation_alarm"
-        android:name="com.rpi_radio_alarm.rpi_radio_alarm_native.ui.alarm.AlarmFragment"
+        android:name="com.rpi_radio_alarm.rpi_radio_alarm_native.ui.alarms.AlarmsFragment"
         android:label="@string/title_alarm"
         tools:layout="@layout/fragment_alarm"
         />

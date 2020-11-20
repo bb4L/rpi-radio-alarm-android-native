@@ -1,4 +1,4 @@
-package com.rpi_radio_alarm.rpi_radio_alarm_native.ui.alarm.dummy
+package com.rpi_radio_alarm.rpi_radio_alarm_native.ui.alarms.dummy
 
 import java.util.ArrayList
 import java.util.HashMap

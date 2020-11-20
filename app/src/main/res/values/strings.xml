@@ -1,12 +1,17 @@
 <resources>
     <string name="app_name">rpi-radio-alarm-native</string>
+
     <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="title_settings">Settings</string>
+
     <string name="title_radio">Radio</string>
     <string name="title_alarm">Alarm</string>
+
+    <string name="title_settings">Settings</string>
+    <string name="label_host">Host</string>
+    <string name="label_port">Port</string>
+    <string name="label_extra_header">Extraheader</string>
+    <string name="label_api_key">ApiKey</string>
+    <string name="label_extra_path">Extrapath</string>
+    <string name="label_input_string">Inputstring</string>
 
 </resources>

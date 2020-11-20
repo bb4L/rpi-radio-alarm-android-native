@@ -1,4 +1,4 @@
-package com.rpi_radio_alarm.rpi_radio_alarm_native.ui.alarm
+package com.rpi_radio_alarm.rpi_radio_alarm_native.ui.alarms
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -9,12 +9,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.rpi_radio_alarm.rpi_radio_alarm_native.R
-import com.rpi_radio_alarm.rpi_radio_alarm_native.ui.alarm.dummy.DummyContent
+import com.rpi_radio_alarm.rpi_radio_alarm_native.ui.alarms.dummy.DummyContent
 
 /**
  * A fragment representing a list of Items.
  */
-class AlarmFragment : Fragment() {
+class AlarmsFragment : Fragment() {
 
     private var columnCount = 1
 
@@ -39,7 +39,7 @@ class AlarmFragment : Fragment() {
                     columnCount <= 1 -> LinearLayoutManager(context)
                     else -> GridLayoutManager(context, columnCount)
                 }
-                adapter = MyAlarmRecyclerViewAdapter(DummyContent.ITEMS)
+                adapter = MyAlarmsRecyclerViewAdapter(DummyContent.ITEMS)
             }
         }
         return view
@@ -53,7 +53,7 @@ class AlarmFragment : Fragment() {
         // TODO: Customize parameter initialization
         @JvmStatic
         fun newInstance(columnCount: Int) =
-            AlarmFragment().apply {
+            AlarmsFragment().apply {
                 arguments = Bundle().apply {
                     putInt(ARG_COLUMN_COUNT, columnCount)
                 }

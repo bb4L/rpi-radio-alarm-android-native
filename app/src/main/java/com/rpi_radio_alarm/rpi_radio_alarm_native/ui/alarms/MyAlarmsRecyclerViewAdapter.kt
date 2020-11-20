@@ -1,4 +1,4 @@
-package com.rpi_radio_alarm.rpi_radio_alarm_native.ui.alarm
+package com.rpi_radio_alarm.rpi_radio_alarm_native.ui.alarms
 
 import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
@@ -7,15 +7,15 @@ import android.view.ViewGroup
 import android.widget.TextView
 import com.rpi_radio_alarm.rpi_radio_alarm_native.R
 
-import com.rpi_radio_alarm.rpi_radio_alarm_native.ui.alarm.dummy.DummyContent.DummyItem
+import com.rpi_radio_alarm.rpi_radio_alarm_native.ui.alarms.dummy.DummyContent.DummyItem
 
 /**
  * [RecyclerView.Adapter] that can display a [DummyItem].
  * TODO: Replace the implementation with code for your data type.
  */
-class MyAlarmRecyclerViewAdapter(
+class MyAlarmsRecyclerViewAdapter(
     private val values: List<DummyItem>
-) : RecyclerView.Adapter<MyAlarmRecyclerViewAdapter.ViewHolder>() {
+) : RecyclerView.Adapter<MyAlarmsRecyclerViewAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context)
