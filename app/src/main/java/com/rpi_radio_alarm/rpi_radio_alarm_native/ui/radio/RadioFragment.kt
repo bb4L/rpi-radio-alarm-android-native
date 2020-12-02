@@ -1,5 +1,7 @@
 package com.rpi_radio_alarm.rpi_radio_alarm_native.ui.radio
 
+import android.content.Context
+import android.content.SharedPreferences
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -10,12 +12,6 @@ import com.rpi_radio_alarm.rpi_radio_alarm_native.R
 
 class RadioFragment : Fragment() {
 
-    companion object {
-        fun newInstance() = RadioFragment()
-    }
-
-    private lateinit var viewModel: RadioViewModel
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -25,8 +21,6 @@ class RadioFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(RadioViewModel::class.java)
-        // TODO: Use the ViewModel
     }
 
 }

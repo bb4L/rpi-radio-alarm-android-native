@@ -11,245 +11,255 @@
         android:layout_height="match_parent"
         android:layout_marginHorizontal="15dp">
 
-        <TableLayout
+        <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <TableRow
-                android:layout_marginHorizontal="15dp"
-                android:layout_marginVertical="5dp">
-                <TextView
-                    android:id="@+id/textView4"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:text="Alarm Host"
-                    android:textIsSelectable="false"
-                    android:textSize="24sp"
-                    android:textStyle="bold" />
-            </TableRow>
-
-            <TableRow android:layout_marginHorizontal="15dp">
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:id="@+id/host_label"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:gravity="center_vertical"
-                        android:text="@string/label_host" />
-
-                    <com.google.android.material.textfield.TextInputLayout
-                        android:id="@+id/textInputLayout"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1">
-
-                        <com.google.android.material.textfield.TextInputEditText
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent" />
-                    </com.google.android.material.textfield.TextInputLayout>
-                </LinearLayout>
-            </TableRow>
-
-            <TableRow
+            <TableLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginHorizontal="15dp"
-                android:layout_marginVertical="15dp">
+                android:paddingBottom="60dp">
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:orientation="horizontal">
+                <TableRow
+                    android:layout_marginHorizontal="15dp"
+                    android:layout_marginVertical="5dp">
 
                     <TextView
-                        android:id="@+id/textViewPort"
+                        android:id="@+id/textView4"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
-                        android:gravity="center_vertical"
-                        android:text="Port" />
+                        android:gravity="center"
+                        android:text="Alarm Host"
+                        android:textIsSelectable="false"
+                        android:textSize="24sp"
+                        android:textStyle="bold" />
+                </TableRow>
 
-                    <com.google.android.material.textfield.TextInputLayout
+                <TableRow android:layout_marginHorizontal="15dp">
+
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_weight="1">
+                        android:layout_weight="1"
+                        android:orientation="horizontal">
 
-                        <com.google.android.material.textfield.TextInputEditText
+                        <TextView
+                            android:id="@+id/host_label"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_weight="1"
-                            android:textColorLink="@color/colorAccent" />
-                    </com.google.android.material.textfield.TextInputLayout>
-                </LinearLayout>
-            </TableRow>
+                            android:gravity="center_vertical"
+                            android:text="@string/label_host" />
 
-            <TableRow android:layout_marginHorizontal="15dp">
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/textInputLayout"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1">
 
-                <LinearLayout
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/hostValue"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent" />
+                        </com.google.android.material.textfield.TextInputLayout>
+                    </LinearLayout>
+                </TableRow>
+
+                <TableRow
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:orientation="horizontal">
+                    android:layout_marginHorizontal="15dp"
+                    android:layout_marginVertical="15dp">
 
-                    <TextView
-                        android:id="@+id/textViewExtraHeader"
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
-                        android:gravity="center_vertical"
-                        android:text="Extraheader" />
+                        android:orientation="horizontal">
 
-                    <com.google.android.material.textfield.TextInputLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1">
-
-                        <com.google.android.material.textfield.TextInputEditText
+                        <TextView
+                            android:id="@+id/textViewPort"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:textColorLink="@color/colorAccent" />
-                    </com.google.android.material.textfield.TextInputLayout>
+                            android:layout_weight="1"
+                            android:gravity="center_vertical"
+                            android:text="Port" />
 
-                </LinearLayout>
-            </TableRow>
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1">
 
-            <TableRow android:layout_marginHorizontal="15dp">
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/portValue"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:textColorLink="@color/colorAccent" />
+                        </com.google.android.material.textfield.TextInputLayout>
+                    </LinearLayout>
+                </TableRow>
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:orientation="horizontal">
+                <TableRow android:layout_marginHorizontal="15dp">
 
-                    <TextView
-                        android:id="@+id/textViewApikey"
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
-                        android:gravity="center_vertical"
-                        android:text="Apikey" />
+                        android:orientation="horizontal">
 
-                    <com.google.android.material.textfield.TextInputLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1">
-
-                        <com.google.android.material.textfield.TextInputEditText
+                        <TextView
+                            android:id="@+id/textViewExtraHeader"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:textColorLink="@color/colorAccent" />
-                    </com.google.android.material.textfield.TextInputLayout>
+                            android:layout_weight="1"
+                            android:gravity="center_vertical"
+                            android:text="Extraheader" />
 
-                </LinearLayout>
-            </TableRow>
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1">
 
-            <TableRow android:layout_marginHorizontal="15dp">
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/extraHeaderValue"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:textColorLink="@color/colorAccent" />
+                        </com.google.android.material.textfield.TextInputLayout>
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:orientation="horizontal">
+                    </LinearLayout>
+                </TableRow>
 
-                    <TextView
-                        android:id="@+id/textViewExtrapath"
+                <TableRow android:layout_marginHorizontal="15dp">
+
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
-                        android:gravity="center_vertical"
-                        android:text="Extrapath" />
+                        android:orientation="horizontal">
 
-                    <com.google.android.material.textfield.TextInputLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1">
-
-                        <com.google.android.material.textfield.TextInputEditText
+                        <TextView
+                            android:id="@+id/textViewApikey"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:textColorLink="@color/colorAccent" />
-                    </com.google.android.material.textfield.TextInputLayout>
+                            android:layout_weight="1"
+                            android:gravity="center_vertical"
+                            android:text="Apikey" />
 
-                </LinearLayout>
-            </TableRow>
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1">
 
-            <TableRow android:layout_marginHorizontal="15dp">
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/apiKeyValue"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:textColorLink="@color/colorAccent" />
+                        </com.google.android.material.textfield.TextInputLayout>
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:orientation="horizontal">
+                    </LinearLayout>
+                </TableRow>
 
-                    <TextView
-                        android:id="@+id/textViewInputString"
+                <TableRow android:layout_marginHorizontal="15dp">
+
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
-                        android:gravity="center_vertical"
-                        android:text="Inputstring" />
+                        android:orientation="horizontal">
 
-                    <com.google.android.material.textfield.TextInputLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1">
-
-                        <com.google.android.material.textfield.TextInputEditText
+                        <TextView
+                            android:id="@+id/textViewExtrapath"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:textColorLink="@color/colorAccent" />
-                    </com.google.android.material.textfield.TextInputLayout>
+                            android:layout_weight="1"
+                            android:gravity="center_vertical"
+                            android:text="Extrapath" />
 
-                </LinearLayout>
-            </TableRow>
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1">
 
-            <TableRow android:layout_marginHorizontal="15dp">
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/extraPathValue"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:textColorLink="@color/colorAccent" />
+                        </com.google.android.material.textfield.TextInputLayout>
 
-                <Button
-                    android:layout_weight="1"
-                    android:id="@+id/loadFromString"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Load from string"
-                    android:textColor="@color/darkerGray"
-                    android:backgroundTint="@android:color/holo_blue_dark"
-                    />
+                    </LinearLayout>
+                </TableRow>
 
-            </TableRow>
-            <TableRow android:layout_marginHorizontal="15dp">
-                <Button
-                    android:layout_weight="1"
-                    android:id="@+id/saveSettings"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Save data"
-                    android:textColor="@color/darkerGray"
-                    android:backgroundTint="@android:color/holo_green_dark"
-                    />
+                <TableRow android:layout_marginHorizontal="15dp">
 
-                <Button
-                    android:layout_weight="1"
-                    android:id="@+id/deleteStorage"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Delete storage"
-                    android:textColor="@color/darkerGray"
-                    android:backgroundTint="@android:color/holo_red_dark"
-                    />
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:orientation="horizontal">
 
-            </TableRow>
-        </TableLayout>
+                        <TextView
+                            android:id="@+id/textViewInputString"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:gravity="center_vertical"
+                            android:text="Inputstring" />
 
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/inputStringValue"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:textColorLink="@color/colorAccent" />
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                    </LinearLayout>
+                </TableRow>
+
+                <TableRow android:layout_marginHorizontal="15dp">
+
+                    <Button
+                        android:id="@+id/loadFromString"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:backgroundTint="@android:color/holo_blue_dark"
+                        android:text="Load from string"
+                        android:textColor="@color/darkerGray" />
+
+                </TableRow>
+
+                <TableRow android:layout_marginHorizontal="15dp">
+
+                    <Button
+                        android:id="@+id/saveSettings"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:backgroundTint="@android:color/holo_green_dark"
+                        android:text="Save data"
+                        android:textColor="@color/darkerGray" />
+
+                    <Button
+                        android:id="@+id/deleteStorage"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:backgroundTint="@android:color/holo_red_dark"
+                        android:text="Delete storage"
+                        android:textColor="@color/darkerGray" />
+                </TableRow>
+            </TableLayout>
+        </ScrollView>
 
     </androidx.cardview.widget.CardView>
-
 </FrameLayout>
