@@ -13,5 +13,7 @@
     <string name="label_api_key">ApiKey</string>
     <string name="label_extra_path">Extrapath</string>
     <string name="label_input_string">Inputstring</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

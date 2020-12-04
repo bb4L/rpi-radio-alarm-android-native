@@ -5,9 +5,15 @@
     android:gravity="center">
 
     <TextView
-        android:id="@+id/alarm_content"
+        android:id="@+id/alarm_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/text_margin"
          />
+
+    <Switch
+        android:id="@+id/alarm_on"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1" />
 </LinearLayout>

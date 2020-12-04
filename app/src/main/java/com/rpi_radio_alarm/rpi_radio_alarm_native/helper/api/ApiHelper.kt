@@ -54,6 +54,10 @@ class ApiHelper(rpiSettings: RpiSettings) {
          */
     }
 
+    fun getAlarm(idx:String): Call<Alarm> {
+        return _rpiApiService!!.getAlarm(getHeaders(), idx)
+    }
+
 
     fun switchAlarm(i: Int, turnOff: Boolean){
         // TODO: implement

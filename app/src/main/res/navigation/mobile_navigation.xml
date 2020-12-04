@@ -21,11 +21,29 @@
         android:name="com.rpi_radio_alarm.rpi_radio_alarm_native.ui.alarms.AlarmsFragment"
         android:label="@string/title_alarm"
         tools:layout="@layout/fragment_alarm"
-        />
+        >
+        <action
+            android:id="@+id/action_navigation_alarm_to_alarmDetailFragment"
+            app:destination="@id/alarmDetailFragment">
+        <argument
+            android:name="alarmID"
+            app:argType="integer"
+            android:defaultValue="1" />
+        </action>
+    </fragment>
     <fragment
         android:id="@+id/navigation_settings"
         android:name="com.rpi_radio_alarm.rpi_radio_alarm_native.ui.settings.SettingsFragment"
         android:label="@string/title_settings"
         tools:layout="@layout/fragment_settings"
         />
+    <fragment
+        android:id="@+id/alarmDetailFragment"
+        android:name="com.rpi_radio_alarm.rpi_radio_alarm_native.ui.alarms.AlarmDetailFragment"
+        android:label="Alarm Detail"
+        tools:layout="@layout/fragment_alarm_detail" >
+        <action
+            android:id="@+id/action_alarmDetailFragment_to_navigation_alarm"
+            app:destination="@id/navigation_alarm" />
+    </fragment>
 </navigation>
