@@ -1,5 +1,6 @@
 package com.rpi_radio_alarm.rpi_radio_alarm_native.ui.alarms
 
+import android.app.AlertDialog
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -34,11 +35,10 @@ class AlarmsFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         manager = LinearLayoutManager(this.requireContext())
-        myAdapter = AlarmsAdapter(arrayOf<Alarm>()) { alarm: Alarm ->
-            alarmClicked(
-                alarm
-            )
-        }
+        myAdapter = AlarmsAdapter(
+            arrayOf<Alarm>(),
+            { alarm: Alarm -> alarmClicked(alarm) },
+            { alarm: Alarm -> deleteAlarm(alarm) })
         rpiSettings = RpiSettings(this.requireContext())
         val view = inflater.inflate(R.layout.fragment_alarm_list, container, false)
         internalView = view
@@ -58,37 +58,26 @@ class AlarmsFragment : Fragment() {
 
             object : Callback<List<Alarm>> {
                 override fun onFailure(call: Call<List<Alarm>>?, t: Throwable?) {
-                    Log.v("retrofit", "call failed")
-                    Log.v("retrofit", t!!.stackTraceToString())
-                    Toast.makeText(
-                        context,
-                        String.format("FAILED"),
-                        Toast.LENGTH_SHORT
-                    ).show();
-
+                    Toast.makeText(context, String.format("FAILED"), Toast.LENGTH_SHORT).show();
                 }
 
                 override fun onResponse(
                     call: Call<List<Alarm>>?,
                     response: Response<List<Alarm>>?
                 ) {
-                    Log.v("retrofit", response!!.toString())
-                    Log.v("retrofit", response!!.body()!!.toString())
-                    //val toast = Toast.makeText(context, "Alarms retrieved", Toast.LENGTH_SHORT);
-                    //toast.setGravity(Gravity.CENTER, 0, 0)
-                    //val v = toast.view.findViewById<View>(android.R.id.message) as TextView
-                    //v.setTextColor(Color.RED)
-                    //v.setBackgroundColor(Color.TRANSPARENT)
-                    //toast.show()
                     recyclerView =
                         internalView.findViewById<RecyclerView>(R.id.recycler_view).apply {
                             // layoutManager = manager
                             adapter =
-                                AlarmsAdapter(response.body()!!.toTypedArray()) { alarm: Alarm ->
+                                AlarmsAdapter(response!!.body()!!.toTypedArray(), { alarm: Alarm ->
                                     alarmClicked(
                                         alarm
                                     )
-                                }
+                                }, { alarm: Alarm ->
+                                    deleteAlarm(
+                                        alarm
+                                    )
+                                })
                         }
 
                 }
@@ -102,5 +91,52 @@ class AlarmsFragment : Fragment() {
         bundle.putInt("alarmID", alarm.idx!!)
         Navigation.findNavController(requireView())
             .navigate(R.id.action_navigation_alarm_to_alarmDetailFragment, bundle)
+    }
+
+    private fun deleteAlarm(alarm: Alarm) {
+        val dialog: AlertDialog =
+            AlertDialog.Builder(context).setMessage("Delete Alarm: " + alarm.name)
+                .setPositiveButton(
+                    android.R.string.ok
+                ) { dialog, _ ->
+                    ApiHelper(rpiSettings!!).deleteAlarm(alarm.idx.toString()).enqueue(
+                        object : Callback<List<Alarm>> {
+                            override fun onFailure(call: Call<List<Alarm>>?, t: Throwable?) {
+                                Toast.makeText(context, String.format("FAILED"), Toast.LENGTH_SHORT).show();
+                            }
+
+                            override fun onResponse(
+                                call: Call<List<Alarm>>?,
+                                response: Response<List<Alarm>>?
+                            ) {
+                                recyclerView =
+                                    internalView.findViewById<RecyclerView>(R.id.recycler_view).apply {
+                                        // layoutManager = manager
+                                        adapter =
+                                            AlarmsAdapter(response!!.body()!!.toTypedArray(), { alarm: Alarm ->
+                                                alarmClicked(
+                                                    alarm
+                                                )
+                                            }, { alarm: Alarm ->
+                                                deleteAlarm(
+                                                    alarm
+                                                )
+                                            })
+                                    }
+
+                            }
+                        }
+                    )
+                    dialog.dismiss()
+                    getAlarms()
+                    //TODO: delete alarm and reload alarms
+                }.setNegativeButton(
+                    android.R.string.cancel
+                ) { dialog, _ ->
+                    dialog.dismiss()
+                }.setOnCancelListener { dialog ->
+                    dialog.dismiss()
+                }.create()
+        dialog.show()
     }
 }

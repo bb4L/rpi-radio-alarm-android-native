@@ -20,22 +20,6 @@
                 android:layout_height="match_parent"
                 android:paddingBottom="60dp">
 
-                <TableRow
-                    android:layout_marginHorizontal="15dp"
-                    android:layout_marginVertical="5dp">
-
-                    <TextView
-                        android:id="@+id/textView4"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:gravity="center"
-                        android:text="Alarm Host"
-                        android:textIsSelectable="false"
-                        android:textSize="24sp"
-                        android:textStyle="bold" />
-                </TableRow>
-
                 <TableRow android:layout_marginHorizontal="15dp">
 
                     <LinearLayout
@@ -225,8 +209,7 @@
                     </LinearLayout>
                 </TableRow>
 
-                <TableRow android:layout_marginHorizontal="15dp">
-
+                <TableRow android:layout_marginHorizontal="10dp">
                     <Button
                         android:id="@+id/loadFromString"
                         android:layout_width="wrap_content"
@@ -234,12 +217,10 @@
                         android:layout_weight="1"
                         android:backgroundTint="@android:color/holo_blue_dark"
                         android:text="Load from string"
-                        android:textColor="@color/darkerGray" />
-
+                        android:textColor="@color/black" />
                 </TableRow>
 
-                <TableRow android:layout_marginHorizontal="15dp">
-
+                <TableRow android:layout_marginHorizontal="10dp">
                     <Button
                         android:id="@+id/saveSettings"
                         android:layout_width="wrap_content"
@@ -247,8 +228,10 @@
                         android:layout_weight="1"
                         android:backgroundTint="@android:color/holo_green_dark"
                         android:text="Save data"
-                        android:textColor="@color/darkerGray" />
+                        android:textColor="@color/black" />
+                </TableRow>
 
+                <TableRow android:layout_marginHorizontal="10dp">
                     <Button
                         android:id="@+id/deleteStorage"
                         android:layout_width="wrap_content"
@@ -256,7 +239,7 @@
                         android:layout_weight="1"
                         android:backgroundTint="@android:color/holo_red_dark"
                         android:text="Delete storage"
-                        android:textColor="@color/darkerGray" />
+                        android:textColor="@color/black" />
                 </TableRow>
             </TableLayout>
         </ScrollView>
