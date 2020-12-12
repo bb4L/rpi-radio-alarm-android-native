@@ -44,7 +44,8 @@ class ApiHelper(rpiSettings: RpiSettings) {
     }
 
 
-    fun switchAlarm(i: Int, turnOff: Boolean) {
+    fun switchAlarm(alarm: Alarm, turnOff: Boolean) {
+
         // TODO: implement
     }
 
