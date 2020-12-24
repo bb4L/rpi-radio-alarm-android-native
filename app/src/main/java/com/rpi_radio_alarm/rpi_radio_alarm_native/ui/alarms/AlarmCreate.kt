@@ -64,7 +64,7 @@ class AlarmCreate : Fragment() {
         apiHelper.createAlarm(alarm).enqueue(
             object : Callback<List<Alarm>> {
                 override fun onFailure(call: Call<List<Alarm>>?, t: Throwable?) {
-                    val toast = Toast.makeText(context, "Save failed", Toast.LENGTH_SHORT);
+                    val toast = Toast.makeText(context, "Save failed", Toast.LENGTH_SHORT)
                     toast.setGravity(Gravity.CENTER, 0, 0)
                     val v = toast.view.findViewById<View>(android.R.id.message) as TextView
                     v.setTextColor(Color.RED)
@@ -76,7 +76,7 @@ class AlarmCreate : Fragment() {
                     call: Call<List<Alarm>>?,
                     response: Response<List<Alarm>>?
                 ) {
-                    val toast = Toast.makeText(context, "Created", Toast.LENGTH_SHORT);
+                    val toast = Toast.makeText(context, "Created", Toast.LENGTH_SHORT)
                     toast.setGravity(Gravity.CENTER, 0, 0)
                     val v = toast.view.findViewById<View>(android.R.id.message) as TextView
                     v.setTextColor(Color.RED)

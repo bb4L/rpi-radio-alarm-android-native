@@ -17,7 +17,7 @@ class AlarmsAdapter(
     private val switchAlarmListener: (Alarm) -> Unit
 ) : RecyclerView.Adapter<AlarmsAdapter.ViewHolder>() {
 
-    class ViewHolder(val view: View) : RecyclerView.ViewHolder(view) {
+    class ViewHolder(private val view: View) : RecyclerView.ViewHolder(view) {
         fun bind(
             alarm: Alarm,
             clickListItemListener: (Alarm) -> Unit,

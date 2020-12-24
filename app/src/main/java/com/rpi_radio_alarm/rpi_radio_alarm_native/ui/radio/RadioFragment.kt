@@ -6,11 +6,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Switch
-import android.widget.Toast
 import com.rpi_radio_alarm.rpi_radio_alarm_native.R
 import com.rpi_radio_alarm.rpi_radio_alarm_native.helper.api.ApiHelper
 import com.rpi_radio_alarm.rpi_radio_alarm_native.helper.resouces.Radio
 import com.rpi_radio_alarm.rpi_radio_alarm_native.helper.resouces.RpiSettings
+import com.rpi_radio_alarm.rpi_radio_alarm_native.helper.ui.UIHelper
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -23,7 +23,7 @@ class RadioFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         root = inflater.inflate(R.layout.fragment_radio, container, false)
         rpiSettings = RpiSettings(this.requireContext())
         getRadio()
@@ -36,11 +36,7 @@ class RadioFragment : Fragment() {
         ApiHelper(rpiSettings).getRadio().enqueue(
             object : Callback<Radio> {
                 override fun onFailure(call: Call<Radio>?, t: Throwable?) {
-                    Toast.makeText(
-                        context,
-                        String.format("Failed to get radio"),
-                        Toast.LENGTH_SHORT
-                    ).show();
+                    UIHelper.showToast(context!!, "Failed to get radio")
                 }
 
                 override fun onResponse(
@@ -63,7 +59,7 @@ class RadioFragment : Fragment() {
                 override fun onFailure(call: Call<Radio>?, t: Throwable?) {
                     radio.isPlaying = !radio.isPlaying
                     root.findViewById<Switch>(R.id.radioSwitch).isChecked = radio.isPlaying
-                    Toast.makeText(context, String.format("FAILED"), Toast.LENGTH_SHORT).show();
+                    UIHelper.showToast(context!!, "FAILED")
                 }
 
                 override fun onResponse(

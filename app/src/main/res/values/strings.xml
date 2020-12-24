@@ -2,6 +2,8 @@
     <string name="app_name">rpi-radio-alarm-native</string>
 
     <string name="title_home">Home</string>
+    <string name="home_title">Welcome to the native app</string>
+    <string name="home_subtitle">rpi-radio-alarm </string>
 
     <string name="title_radio">Radio</string>
     <string name="title_alarm">Alarm</string>
@@ -13,7 +15,13 @@
     <string name="label_api_key">ApiKey</string>
     <string name="label_extra_path">Extrapath</string>
     <string name="label_input_string">Inputstring</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="portLabel">Port</string>
+    <string name="extraheaderLabel">Extraheader</string>
+    <string name="apikeyLabel">Apikey</string>
+    <string name="extrapathLabel">Extrapath</string>
+    <string name="inputstringLabel">Inputstring</string>
+    <string name="load_from_stringLabel">Load from string</string>
+    <string name="save_dataLabel">Save data</string>
+    <string name="delete_storageLabel">Delete storage</string>
 
 </resources>

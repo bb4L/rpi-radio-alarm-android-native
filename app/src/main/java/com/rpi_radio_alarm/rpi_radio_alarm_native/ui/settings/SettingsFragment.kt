@@ -1,7 +1,6 @@
 package com.rpi_radio_alarm.rpi_radio_alarm_native.ui.settings
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -51,17 +50,11 @@ class SettingsFragment : Fragment() {
     }
 
     private fun loadFromString(){
-        Log.d("myTag", "This is my message");
         val inputString = root!!.findViewById<TextInputEditText>(R.id.inputStringValue).text!!.toString().split(",")
-        Log.d("myTag", inputString.toString());
-        Log.d("myTag", inputString.size.toString());
         if (inputString.size != 5) {
             return
         }
-        Log.d("myTag", rpiSettings.toString());
         rpiSettings!!.host = inputString[0]
-        Log.d("myTag", rpiSettings!!.host);
-
         rpiSettings!!.port = inputString[1]
         rpiSettings!!.customHeader = inputString[2]
         rpiSettings!!.apiKey =  inputString[3]

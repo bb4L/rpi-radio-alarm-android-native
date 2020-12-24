@@ -8,8 +8,7 @@
     android:stateListAnimator="@null"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
-<androidx.recyclerview.widget.RecyclerView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<androidx.recyclerview.widget.RecyclerView xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/recycler_view"
     android:name="com.rpi_radio_alarm.rpi_radio_alarm_native.ui.alarms.AlarmsFragment"
     android:layout_width="match_parent"
@@ -34,7 +33,8 @@
         android:baselineAlignBottom="true"
         android:clickable="true"
         android:src="@android:drawable/ic_input_add"
-        app:backgroundTint="@color/colorPrimary" />
+        app:backgroundTint="@color/colorPrimary"
+        android:contentDescription="Add alarm button" />
 
 
 </RelativeLayout>

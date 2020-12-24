@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -25,12 +24,11 @@ import retrofit2.Response
  * A fragment representing a list of Alarms.
  */
 class AlarmsFragment : Fragment() {
-    private var rpiSettings: RpiSettings? = null
+    private lateinit var rpiSettings: RpiSettings
     private lateinit var manager: RecyclerView.LayoutManager
     private lateinit var myAdapter: RecyclerView.Adapter<*>
     private lateinit var recyclerView: RecyclerView
     private lateinit var internalView: View
-    // private lateinit var progressOverlay: View;
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -38,10 +36,10 @@ class AlarmsFragment : Fragment() {
     ): View? {
         manager = LinearLayoutManager(this.requireContext())
         myAdapter = AlarmsAdapter(
-            arrayOf<Alarm>(),
+            arrayOf(),
             { alarm: Alarm -> alarmClicked(alarm) },
             { alarm: Alarm -> deleteAlarm(alarm) },
-            { alarm: Alarm -> switchAlarm(alarm)})
+            { alarm: Alarm -> switchAlarm(alarm) })
         rpiSettings = RpiSettings(this.requireContext())
         val view = inflater.inflate(R.layout.fragment_alarm_list, container, false)
 
@@ -50,29 +48,23 @@ class AlarmsFragment : Fragment() {
         recyclerView = internalView.findViewById<RecyclerView>(R.id.recycler_view).apply {
             layoutManager = manager
         }
-        // progressOverlay = internalView.findViewById(R.id.loadingFragment);
-        internalView.findViewById<FloatingActionButton>(R.id.createAlarmFAB).setOnClickListener{goToCreateAlarm()}
+        internalView.findViewById<FloatingActionButton>(R.id.createAlarmFAB)
+            .setOnClickListener { goToCreateAlarm() }
         getAlarms()
         return view
     }
 
-    private fun goToCreateAlarm(){
+    private fun goToCreateAlarm() {
         Navigation.findNavController(requireView())
             .navigate(R.id.action_navigation_alarm_to_alarmCreate)
     }
 
     private fun getAlarms() {
-        // LoadingHelper.animateView(progressOverlay, View.VISIBLE, 0.4f, 200);
-        // Thread.sleep(1000)
-
-        ApiHelper(rpiSettings!!).getAlarms().enqueue(
-
+        ApiHelper(rpiSettings).getAlarms().enqueue(
 
             object : Callback<List<Alarm>> {
                 override fun onFailure(call: Call<List<Alarm>>?, t: Throwable?) {
-                    Toast.makeText(context, String.format("FAILED"), Toast.LENGTH_SHORT).show();
-                    // LoadingHelper.animateView(progressOverlay, View.GONE, 0f, 200);
-
+                    UIHelper.showToast(context!!, "Failed")
                 }
 
                 override fun onResponse(
@@ -82,7 +74,7 @@ class AlarmsFragment : Fragment() {
                     UIHelper.showToast(context!!, "Received Alarms")
                     recyclerView =
                         internalView.findViewById<RecyclerView>(R.id.recycler_view).apply {
-                            var alarms = response!!.body()!!.toTypedArray()
+                            val alarms = response!!.body()!!.toTypedArray()
                             alarms.forEachIndexed { idx, alarm -> alarm.idx = idx }
                             adapter =
                                 AlarmsAdapter(alarms, { alarm: Alarm ->
@@ -93,17 +85,14 @@ class AlarmsFragment : Fragment() {
                                     deleteAlarm(
                                         alarm
                                     )
-                                }, {
-                                    alarm:Alarm ->
+                                }, { alarm: Alarm ->
                                     switchAlarm(
                                         alarm
                                     )
                                 })
                         }
-                    // LoadingHelper.animateView(progressOverlay, View.GONE, 0f, 200);
                 }
-            }
-        )
+            })
 
     }
 
@@ -114,12 +103,12 @@ class AlarmsFragment : Fragment() {
             .navigate(R.id.action_navigation_alarm_to_alarmDetailFragment, bundle)
     }
 
-    private fun switchAlarm(alarm:Alarm){
+    private fun switchAlarm(alarm: Alarm) {
         alarm.on = !alarm.on!!
-        ApiHelper(rpiSettings!!).changeAlarm(alarm).enqueue(
+        ApiHelper(this.rpiSettings).changeAlarm(alarm).enqueue(
             object : Callback<Alarm> {
                 override fun onFailure(call: Call<Alarm>?, t: Throwable?) {
-                    UIHelper.showToast(context!!,"FAILED")
+                    UIHelper.showToast(context!!, "FAILED")
                 }
 
                 override fun onResponse(
@@ -139,11 +128,10 @@ class AlarmsFragment : Fragment() {
                 .setPositiveButton(
                     android.R.string.ok
                 ) { dialog, _ ->
-                    ApiHelper(rpiSettings!!).deleteAlarm(alarm.idx!!.toString()).enqueue(
+                    ApiHelper(rpiSettings).deleteAlarm(alarm.idx!!.toString()).enqueue(
                         object : Callback<List<Alarm>> {
                             override fun onFailure(call: Call<List<Alarm>>?, t: Throwable?) {
-                                Toast.makeText(context, String.format("FAILED"), Toast.LENGTH_SHORT)
-                                    .show();
+                                UIHelper.showToast(context!!, "Failed")
                             }
 
                             override fun onResponse(

@@ -17,14 +17,12 @@
 
             <TableLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:paddingBottom="60dp">
 
                 <TableRow android:layout_marginHorizontal="15dp">
 
                     <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:orientation="horizontal">
 
@@ -60,7 +58,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
-                        android:orientation="horizontal">
+                        android:orientation="horizontal"
+                        tools:ignore="UselessParent">
 
                         <TextView
                             android:id="@+id/textViewPort"
@@ -68,7 +67,7 @@
                             android:layout_height="match_parent"
                             android:layout_weight="1"
                             android:gravity="center_vertical"
-                            android:text="Port" />
+                            android:text="@string/portLabel" />
 
                         <com.google.android.material.textfield.TextInputLayout
                             android:layout_width="match_parent"
@@ -99,7 +98,7 @@
                             android:layout_height="match_parent"
                             android:layout_weight="1"
                             android:gravity="center_vertical"
-                            android:text="Extraheader" />
+                            android:text="@string/extraheaderLabel" />
 
                         <com.google.android.material.textfield.TextInputLayout
                             android:layout_width="match_parent"
@@ -130,7 +129,7 @@
                             android:layout_height="match_parent"
                             android:layout_weight="1"
                             android:gravity="center_vertical"
-                            android:text="Apikey" />
+                            android:text="@string/apikeyLabel" />
 
                         <com.google.android.material.textfield.TextInputLayout
                             android:layout_width="match_parent"
@@ -161,7 +160,7 @@
                             android:layout_height="match_parent"
                             android:layout_weight="1"
                             android:gravity="center_vertical"
-                            android:text="Extrapath" />
+                            android:text="@string/extrapathLabel" />
 
                         <com.google.android.material.textfield.TextInputLayout
                             android:layout_width="match_parent"
@@ -192,7 +191,7 @@
                             android:layout_height="match_parent"
                             android:layout_weight="1"
                             android:gravity="center_vertical"
-                            android:text="Inputstring" />
+                            android:text="@string/inputstringLabel" />
 
                         <com.google.android.material.textfield.TextInputLayout
                             android:layout_width="match_parent"
@@ -216,7 +215,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:backgroundTint="@android:color/holo_blue_dark"
-                        android:text="Load from string"
+                        android:text="@string/load_from_stringLabel"
                         android:textColor="@color/black" />
                 </TableRow>
 
@@ -227,7 +226,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:backgroundTint="@android:color/holo_green_dark"
-                        android:text="Save data"
+                        android:text="@string/save_dataLabel"
                         android:textColor="@color/black" />
                 </TableRow>
 
@@ -238,7 +237,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:backgroundTint="@android:color/holo_red_dark"
-                        android:text="Delete storage"
+                        android:text="@string/delete_storageLabel"
                         android:textColor="@color/black" />
                 </TableRow>
             </TableLayout>
