@@ -30,6 +30,9 @@
             app:argType="integer"
             android:defaultValue="1" />
         </action>
+        <action
+            android:id="@+id/action_navigation_alarm_to_alarmCreate"
+            app:destination="@id/alarmCreate" />
     </fragment>
     <fragment
         android:id="@+id/navigation_settings"
@@ -44,6 +47,14 @@
         tools:layout="@layout/fragment_alarm_detail" >
         <action
             android:id="@+id/action_alarmDetailFragment_to_navigation_alarm"
+            app:destination="@id/navigation_alarm" />
+    </fragment>
+    <fragment
+        android:id="@+id/alarmCreate"
+        android:name="com.rpi_radio_alarm.rpi_radio_alarm_native.ui.alarms.AlarmCreate"
+        android:label="AlarmCreate" >
+        <action
+            android:id="@+id/action_alarmCreate_to_navigation_alarm"
             app:destination="@id/navigation_alarm" />
     </fragment>
 </navigation>

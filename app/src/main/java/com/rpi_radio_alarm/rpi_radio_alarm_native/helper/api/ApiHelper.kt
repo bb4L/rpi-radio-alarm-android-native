@@ -2,6 +2,7 @@ package com.rpi_radio_alarm.rpi_radio_alarm_native.helper.api
 
 import android.util.Log
 import com.rpi_radio_alarm.rpi_radio_alarm_native.helper.resouces.Alarm
+import com.rpi_radio_alarm.rpi_radio_alarm_native.helper.resouces.Radio
 import com.rpi_radio_alarm.rpi_radio_alarm_native.helper.resouces.RpiSettings
 import retrofit2.Call
 import retrofit2.Retrofit
@@ -57,20 +58,17 @@ class ApiHelper(rpiSettings: RpiSettings) {
         return _rpiApiService!!.deleteAlarm(getHeaders(), idx)
     }
 
-    fun getRadio() {
-        // TODO: implement
+    fun getRadio():Call<Radio>  {
+        return _rpiApiService!!.getRadio(getHeaders())
     }
 
-    fun startRadio() {
-        // TODO: implement
+    fun changeRadio(radio:Radio): Call<Radio> {
+        radio.setSwitchVal()
+        return _rpiApiService!!.changeRadio(getHeaders(),radio)
     }
 
-    fun stopRadio() {
-        // TODO: implement
-    }
-
-    fun createAlarm(alarm: Alarm) {
-        // TODO: implement
+    fun createAlarm(alarm: Alarm):Call<List<Alarm>> {
+        return _rpiApiService!!.createAlarm(getHeaders(), alarm)
     }
 
 }

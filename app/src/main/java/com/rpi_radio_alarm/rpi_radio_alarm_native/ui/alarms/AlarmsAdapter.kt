@@ -27,7 +27,6 @@ class AlarmsAdapter(
             val tv = view.findViewById<TextView>(R.id.alarm_name)
             tv.text = alarm.name
             val on = view.findViewById<Switch>(R.id.alarm_on)
-            //on.text = alarm.name
             on.isChecked = alarm.on!!
 
             on.setOnClickListener {switchAlarmListener(alarm)}
@@ -36,10 +35,6 @@ class AlarmsAdapter(
 
             val del = view.findViewById<ImageView>(R.id.alarmDeleteImageView)
             del.setOnClickListener { deleteListItemListener(alarm) }
-            // TODO: add listener to turn alarm on or off
-
-            // TODO: add loading overlay https://stackoverflow.com/questions/18021148/display-a-loading-overlay-on-android-screen
-
         }
     }
 

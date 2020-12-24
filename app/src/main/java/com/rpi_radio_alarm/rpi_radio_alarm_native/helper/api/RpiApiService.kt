@@ -10,7 +10,7 @@ interface RpiApiService {
     @POST("alarm")
     fun createAlarm(
         @HeaderMap headers: Map<String, String>, @Body alarm: Alarm
-    ): Call<Alarm>
+    ): Call<List<Alarm>>
 
     @PUT("alarm/{idx}")
     fun saveAlarm(
@@ -35,6 +35,6 @@ interface RpiApiService {
     @GET("radio")
     fun getRadio(@HeaderMap headers: Map<String, String>): Call<Radio>
 
-    @GET("radio")
+    @POST("radio")
     fun changeRadio(@HeaderMap headers: Map<String, String>, @Body radio: Radio): Call<Radio>
 }

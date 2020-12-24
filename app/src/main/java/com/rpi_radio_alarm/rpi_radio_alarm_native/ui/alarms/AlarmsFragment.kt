@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.rpi_radio_alarm.rpi_radio_alarm_native.R
 import com.rpi_radio_alarm.rpi_radio_alarm_native.helper.api.ApiHelper
 import com.rpi_radio_alarm.rpi_radio_alarm_native.helper.resouces.Alarm
@@ -43,15 +44,21 @@ class AlarmsFragment : Fragment() {
             { alarm: Alarm -> switchAlarm(alarm)})
         rpiSettings = RpiSettings(this.requireContext())
         val view = inflater.inflate(R.layout.fragment_alarm_list, container, false)
+
         internalView = view
 
         recyclerView = internalView.findViewById<RecyclerView>(R.id.recycler_view).apply {
             layoutManager = manager
         }
         // progressOverlay = internalView.findViewById(R.id.loadingFragment);
-
+        internalView.findViewById<FloatingActionButton>(R.id.createAlarmFAB).setOnClickListener{goToCreateAlarm()}
         getAlarms()
         return view
+    }
+
+    private fun goToCreateAlarm(){
+        Navigation.findNavController(requireView())
+            .navigate(R.id.action_navigation_alarm_to_alarmCreate)
     }
 
     private fun getAlarms() {
