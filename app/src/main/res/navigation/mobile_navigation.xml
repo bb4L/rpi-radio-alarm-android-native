@@ -15,7 +15,11 @@
         android:id="@+id/navigation_radio"
         android:name="com.rpi_radio_alarm.rpi_radio_alarm_native.ui.radio.RadioFragment"
         android:label="@string/title_radio"
-        tools:layout="@layout/fragment_radio" />
+        tools:layout="@layout/fragment_radio" >
+        <action
+            android:id="@+id/action_navigation_radio_to_navigation_settings"
+            app:destination="@id/navigation_settings" />
+    </fragment>
     <fragment
         android:id="@+id/navigation_alarm"
         android:name="com.rpi_radio_alarm.rpi_radio_alarm_native.ui.alarms.AlarmsFragment"
@@ -33,6 +37,9 @@
         <action
             android:id="@+id/action_navigation_alarm_to_alarmCreate"
             app:destination="@id/alarmCreate" />
+        <action
+            android:id="@+id/action_navigation_alarm_to_navigation_settings"
+            app:destination="@id/navigation_settings" />
     </fragment>
     <fragment
         android:id="@+id/navigation_settings"

@@ -34,4 +34,8 @@ class RpiSettings(context:Context) {
         get() = sharedPreferences.getString(_apiKey, "").toString()
         set(value) = sharedPreferences.edit().putString(_apiKey, value).apply()
 
+    fun isComplete():Boolean {
+        return  host != "" &&  port != "" &&  extraPath != "" && customHeader != "" &&  customHeader != "" && apiKey != ""
+
+    }
 }

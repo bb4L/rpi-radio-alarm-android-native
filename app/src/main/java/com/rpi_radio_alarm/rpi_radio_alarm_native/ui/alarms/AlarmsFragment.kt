@@ -2,6 +2,7 @@ package com.rpi_radio_alarm.rpi_radio_alarm_native.ui.alarms
 
 import android.app.AlertDialog
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -40,7 +41,9 @@ class AlarmsFragment : Fragment() {
             { alarm: Alarm -> alarmClicked(alarm) },
             { alarm: Alarm -> deleteAlarm(alarm) },
             { alarm: Alarm -> switchAlarm(alarm) })
+
         rpiSettings = RpiSettings(this.requireContext())
+
         val view = inflater.inflate(R.layout.fragment_alarm_list, container, false)
 
         internalView = view
@@ -50,8 +53,19 @@ class AlarmsFragment : Fragment() {
         }
         internalView.findViewById<FloatingActionButton>(R.id.createAlarmFAB)
             .setOnClickListener { goToCreateAlarm() }
-        getAlarms()
         return view
+    }
+
+    override fun onStart() {
+        super.onStart()
+
+        if(!rpiSettings.isComplete()){
+            UIHelper.showToast( requireContext(),"Please complete settings")
+            Navigation.findNavController(requireView())
+                .navigate(R.id.action_navigation_alarm_to_navigation_settings)
+        } else{
+            getAlarms()
+        }
     }
 
     private fun goToCreateAlarm() {

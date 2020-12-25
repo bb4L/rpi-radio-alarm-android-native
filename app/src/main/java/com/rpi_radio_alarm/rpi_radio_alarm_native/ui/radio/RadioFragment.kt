@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Switch
+import androidx.navigation.Navigation
 import com.rpi_radio_alarm.rpi_radio_alarm_native.R
 import com.rpi_radio_alarm.rpi_radio_alarm_native.helper.api.ApiHelper
 import com.rpi_radio_alarm.rpi_radio_alarm_native.helper.resouces.Radio
@@ -25,11 +26,22 @@ class RadioFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         root = inflater.inflate(R.layout.fragment_radio, container, false)
-        rpiSettings = RpiSettings(this.requireContext())
-        getRadio()
+        rpiSettings = RpiSettings(requireContext())
         root.findViewById<Switch>(R.id.radioSwitch).setOnClickListener { setRadio() }
-
         return root
+    }
+
+
+    override fun onStart() {
+        super.onStart()
+
+        if(!rpiSettings.isComplete()){
+            UIHelper.showToast( requireContext(),"Please complete settings")
+            Navigation.findNavController(requireView())
+                .navigate(R.id.action_navigation_radio_to_navigation_settings)
+        } else{
+            getRadio()
+        }
     }
 
     private fun getRadio() {
