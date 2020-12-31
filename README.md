@@ -4,4 +4,4 @@ Native android application for the [rpi-radio-alarm](https://github.com/bb4L/rpi
 
 ## License
 
-This is published under the [GLP-3.0 License](LICENSE)
+This is published under the [GPL-3.0 License](LICENSE)
