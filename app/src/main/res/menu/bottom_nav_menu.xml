@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:drawable="@color/colorAccent" android:state_checked="true"
+        android:id="@+id/navigation_home"
+        android:icon="@drawable/ic_home_black_24dp"
+        android:iconTint="#FFFFFF"
+        android:title="@string/title_home"
+        android:visible="true" />
+
+    <item
+        android:drawable="@color/colorAccent" android:state_checked="true"
+        android:id="@+id/navigation_radio"
+        android:icon="@drawable/ic_radio_black_24dp"
+        android:title="@string/title_radio"
+        android:visible="true" />
+    <item
+        android:drawable="@color/colorAccent" android:state_checked="true"
+        android:id="@+id/navigation_alarm"
+        android:icon="@drawable/ic_notifications_black_24dp"
+        android:title="@string/title_alarm"
+        android:visible="true" />
+
+    <item
+        android:drawable="@color/colorAccent" android:state_checked="true"
+        android:id="@+id/navigation_settings"
+        android:icon="@drawable/ic_settings_black_24dp"
+        android:title="@string/title_settings"
+        android:visible="true" />
+</menu>

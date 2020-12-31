@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_home">
+
+    <fragment
+        android:id="@+id/navigation_home"
+        android:name="com.rpi_radio_alarm.rpi_radio_alarm_native.ui.home.HomeFragment"
+        android:label="@string/title_home"
+        tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/navigation_radio"
+        android:name="com.rpi_radio_alarm.rpi_radio_alarm_native.ui.radio.RadioFragment"
+        android:label="@string/title_radio"
+        tools:layout="@layout/fragment_radio" >
+        <action
+            android:id="@+id/action_navigation_radio_to_navigation_settings"
+            app:destination="@id/navigation_settings" />
+    </fragment>
+    <fragment
+        android:id="@+id/navigation_alarm"
+        android:name="com.rpi_radio_alarm.rpi_radio_alarm_native.ui.alarms.AlarmsFragment"
+        android:label="@string/title_alarm"
+        tools:layout="@layout/fragment_alarm"
+        >
+        <action
+            android:id="@+id/action_navigation_alarm_to_alarmDetailFragment"
+            app:destination="@id/alarmDetailFragment">
+        <argument
+            android:name="alarmID"
+            app:argType="integer"
+            android:defaultValue="1" />
+        </action>
+        <action
+            android:id="@+id/action_navigation_alarm_to_alarmCreate"
+            app:destination="@id/alarmCreate" />
+        <action
+            android:id="@+id/action_navigation_alarm_to_navigation_settings"
+            app:destination="@id/navigation_settings" />
+    </fragment>
+    <fragment
+        android:id="@+id/navigation_settings"
+        android:name="com.rpi_radio_alarm.rpi_radio_alarm_native.ui.settings.SettingsFragment"
+        android:label="@string/title_settings"
+        tools:layout="@layout/fragment_settings"
+        />
+    <fragment
+        android:id="@+id/alarmDetailFragment"
+        android:name="com.rpi_radio_alarm.rpi_radio_alarm_native.ui.alarms.AlarmDetailFragment"
+        android:label="Alarm Detail"
+        tools:layout="@layout/fragment_alarm_detail" >
+        <action
+            android:id="@+id/action_alarmDetailFragment_to_navigation_alarm"
+            app:destination="@id/navigation_alarm" />
+    </fragment>
+    <fragment
+        android:id="@+id/alarmCreate"
+        android:name="com.rpi_radio_alarm.rpi_radio_alarm_native.ui.alarms.AlarmCreate"
+        android:label="AlarmCreate" >
+        <action
+            android:id="@+id/action_alarmCreate_to_navigation_alarm"
+            app:destination="@id/navigation_alarm" />
+    </fragment>
+</navigation>
