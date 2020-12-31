@@ -18,6 +18,5 @@ class UIHelper {
             v.setBackgroundColor(Color.TRANSPARENT)
             toast.show()
         }
-
     }
 }

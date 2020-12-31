@@ -13,7 +13,7 @@ import com.rpi_radio_alarm.rpi_radio_alarm_native.helper.resouces.RpiSettings
 
 class SettingsFragment : Fragment() {
     private var rpiSettings: RpiSettings? = null
-    private var root :View? = null
+    private var root: View? = null
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -32,8 +32,7 @@ class SettingsFragment : Fragment() {
         return root
     }
 
-
-    private  fun loadFromPreferences(){
+    private fun loadFromPreferences() {
         (root!!.findViewById<TextInputEditText>(R.id.hostValue)).setText(rpiSettings!!.host)
         (root!!.findViewById<TextInputEditText>(R.id.portValue)).setText(rpiSettings!!.port)
         (root!!.findViewById<TextInputEditText>(R.id.extraHeaderValue)).setText(rpiSettings!!.customHeader)
@@ -41,33 +40,40 @@ class SettingsFragment : Fragment() {
         (root!!.findViewById<TextInputEditText>(R.id.extraPathValue)).setText(rpiSettings!!.extraPath)
     }
 
-    private  fun saveToPreferences(){
-        rpiSettings!!.host = (root!!.findViewById<TextInputEditText>(R.id.hostValue)).text!!.toString()
-        rpiSettings!!.port = (root!!.findViewById<TextInputEditText>(R.id.portValue)).text!!.toString()
-        rpiSettings!!.customHeader = (root!!.findViewById<TextInputEditText>(R.id.extraHeaderValue)).text!!.toString()
-        rpiSettings!!.apiKey = (root!!.findViewById<TextInputEditText>(R.id.apiKeyValue)).text!!.toString()
-        rpiSettings!!.extraPath=(root!!.findViewById<TextInputEditText>(R.id.extraPathValue)).text!!.toString()
+    private fun saveToPreferences() {
+        rpiSettings!!.host =
+            (root!!.findViewById<TextInputEditText>(R.id.hostValue)).text!!.toString()
+        rpiSettings!!.port =
+            (root!!.findViewById<TextInputEditText>(R.id.portValue)).text!!.toString()
+        rpiSettings!!.customHeader =
+            (root!!.findViewById<TextInputEditText>(R.id.extraHeaderValue)).text!!.toString()
+        rpiSettings!!.apiKey =
+            (root!!.findViewById<TextInputEditText>(R.id.apiKeyValue)).text!!.toString()
+        rpiSettings!!.extraPath =
+            (root!!.findViewById<TextInputEditText>(R.id.extraPathValue)).text!!.toString()
     }
 
-    private fun loadFromString(){
-        val inputString = root!!.findViewById<TextInputEditText>(R.id.inputStringValue).text!!.toString().split(",")
+    private fun loadFromString() {
+        val inputString =
+            root!!.findViewById<TextInputEditText>(R.id.inputStringValue).text!!.toString()
+                .split(",")
         if (inputString.size != 5) {
             return
         }
         rpiSettings!!.host = inputString[0]
         rpiSettings!!.port = inputString[1]
         rpiSettings!!.customHeader = inputString[2]
-        rpiSettings!!.apiKey =  inputString[3]
-        rpiSettings!!.extraPath= inputString[4]
+        rpiSettings!!.apiKey = inputString[3]
+        rpiSettings!!.extraPath = inputString[4]
         loadFromPreferences()
     }
 
-    private fun deleteSettings(){
+    private fun deleteSettings() {
         rpiSettings!!.host = ""
         rpiSettings!!.port = ""
         rpiSettings!!.customHeader = ""
-        rpiSettings!!.apiKey =  ""
-        rpiSettings!!.extraPath= ""
+        rpiSettings!!.apiKey = ""
+        rpiSettings!!.extraPath = ""
         loadFromPreferences()
     }
 }

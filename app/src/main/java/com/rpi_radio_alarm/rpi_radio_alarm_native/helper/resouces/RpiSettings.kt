@@ -3,18 +3,18 @@ package com.rpi_radio_alarm.rpi_radio_alarm_native.helper.resouces
 import android.content.Context
 import android.content.SharedPreferences
 
-
-class RpiSettings(context:Context) {
+class RpiSettings(context: Context) {
     private val _settingsString = "rpi_preferences"
-    private val sharedPreferences: SharedPreferences = context.getSharedPreferences(_settingsString,0)
+    private val sharedPreferences: SharedPreferences =
+        context.getSharedPreferences(_settingsString, 0)
 
     private val _host = "host"
-    var host:String
+    var host: String
         get() = sharedPreferences.getString(_host, "").toString()
         set(value) = sharedPreferences.edit().putString(_host, value).apply()
 
     private val _port = "port"
-    var port:String
+    var port: String
         get() = sharedPreferences.getString(_port, "").toString()
         set(value) = sharedPreferences.edit().putString(_port, value).apply()
 
@@ -34,8 +34,7 @@ class RpiSettings(context:Context) {
         get() = sharedPreferences.getString(_apiKey, "").toString()
         set(value) = sharedPreferences.edit().putString(_apiKey, value).apply()
 
-    fun isComplete():Boolean {
-        return  host != "" &&  port != "" &&  extraPath != "" && customHeader != "" &&  customHeader != "" && apiKey != ""
-
+    fun isComplete(): Boolean {
+        return host != "" && port != "" && extraPath != "" && customHeader != "" && customHeader != "" && apiKey != ""
     }
 }

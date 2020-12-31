@@ -26,15 +26,18 @@ class AlarmsAdapter(
         ) {
             val tv = view.findViewById<TextView>(R.id.alarm_name)
             tv.text = alarm.name
+
             val on = view.findViewById<Switch>(R.id.alarm_on)
             on.isChecked = alarm.on!!
+            on.setOnClickListener { switchAlarmListener(alarm) }
 
-            on.setOnClickListener {switchAlarmListener(alarm)}
-
-            view.setOnClickListener { clickListItemListener(alarm) }
+            val tvDays = view.findViewById<TextView>(R.id.alarm_days)
+            tvDays.text = alarm.days!!.joinToString(", ")
 
             val del = view.findViewById<ImageView>(R.id.alarmDeleteImageView)
             del.setOnClickListener { deleteListItemListener(alarm) }
+
+            view.setOnClickListener { clickListItemListener(alarm) }
         }
     }
 
@@ -44,7 +47,12 @@ class AlarmsAdapter(
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.bind(myDataSet[position], clickListItemListener, deleteListItemListener, switchAlarmListener)
+        holder.bind(
+            myDataSet[position],
+            clickListItemListener,
+            deleteListItemListener,
+            switchAlarmListener
+        )
     }
 
     override fun getItemCount(): Int {

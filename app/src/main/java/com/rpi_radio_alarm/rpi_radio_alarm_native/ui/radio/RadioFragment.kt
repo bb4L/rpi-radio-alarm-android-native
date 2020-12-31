@@ -31,15 +31,13 @@ class RadioFragment : Fragment() {
         return root
     }
 
-
     override fun onStart() {
         super.onStart()
-
-        if(!rpiSettings.isComplete()){
-            UIHelper.showToast( requireContext(),"Please complete settings")
+        if (!rpiSettings.isComplete()) {
+            UIHelper.showToast(requireContext(), "Please complete settings")
             Navigation.findNavController(requireView())
                 .navigate(R.id.action_navigation_radio_to_navigation_settings)
-        } else{
+        } else {
             getRadio()
         }
     }
@@ -81,5 +79,4 @@ class RadioFragment : Fragment() {
                 }
             })
     }
-
 }
