@@ -59,6 +59,7 @@ class AlarmCreate : Fragment() {
             ((root.findViewById<TextInputEditText>(R.id.alarmMinuteInput)).text.toString()).toInt()
         alarm.days =
             (root.findViewById<TextInputEditText>(R.id.alarmDaysInput)).text.toString().split(",")
+                .map { it.toInt() }
                 .toTypedArray()
         alarm.on = (root.findViewById<Switch>(R.id.alarmOnInput).isChecked)
         apiHelper.createAlarm(alarm).enqueue(
