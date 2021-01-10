@@ -24,5 +24,4 @@
     <string name="save_dataLabel">Save data</string>
     <string name="delete_storageLabel">Delete storage</string>
     <string name="delete_button_description">delete button</string>
-
 </resources>
