@@ -27,6 +27,9 @@ class AlarmsAdapter(
             val tv = view.findViewById<TextView>(R.id.alarm_name)
             tv.text = alarm.name
 
+            val time = view.findViewById<TextView>(R.id.alarm_time)
+            time.text = String.format("%s : %s", alarm.hour!!.toString(), alarm.min!!.toString())
+
             val on = view.findViewById<Switch>(R.id.alarm_on)
             on.isChecked = alarm.on!!
             on.setOnClickListener { switchAlarmListener(alarm) }

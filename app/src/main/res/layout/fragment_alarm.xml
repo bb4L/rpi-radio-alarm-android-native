@@ -17,7 +17,12 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/text_margin"
             />
-
+        <TextView
+            android:id="@+id/alarm_time"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            />
         <TextView
             android:id="@+id/alarm_days"
             android:layout_width="match_parent"
