@@ -1,7 +1,7 @@
 # rpi-radio-alarm-android-native
 
 ![GitHub release (latest by date)](https://img.shields.io/github/v/release/bb4l/rpi-radio-alarm-android-native)
-![CI](https://github.com/bb4L/rpi-radio-alarm-go/workflows/CI/badge.svg)
+[![Debug build](https://github.com/bb4L/rpi-radio-alarm-android-native/actions/workflows/android_build.yml/badge.svg)](https://github.com/bb4L/rpi-radio-alarm-android-native/actions/workflows/android_build.yml)
 ![GitHub Release Date](https://img.shields.io/github/release-date/bb4L/rpi-radio-alarm-android-native)
 ![GitHub last commit](https://img.shields.io/github/last-commit/bb4L/rpi-radio-alarm-android-native)
 ![GitHub](https://img.shields.io/github/license/bb4L/rpi-radio-alarm-android-native)
